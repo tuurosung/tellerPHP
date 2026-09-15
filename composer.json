@@ -1,0 +1,83 @@
+{
+    "name": "tuurosung/gh-payments",
+    "description": "Unoffial PHP Client for Payswitch TheTeller payment API with a clean and powerful handling of intermediate outcomes.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "ghana",
+        "payments",
+        "payswitch",
+        "theteller",
+        "mobile-money",
+        "momo",
+        "laravel",
+        "psr-18"
+    ],
+    "authors": [
+        {
+            "name": "Shahabdeen, Abdul-Moomin",
+            "email": "tuurosungshahabdeen@yahoo.com",
+            "homepage": "https://github.com/tuurosung"
+        }
+    ],
+        "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "psr/http-client": "^1.0",
+        "psr/http-client-implementation": "*",
+        "psr/http-factory": "^1.0",
+        "psr/http-factory-implementation": "*",
+        "psr/http-message": "^1.1|^2.0",
+        "psr/log": "^2.0|^3.0",
+        "php-http/discovery": "^1.19"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^7.8",
+        "nyholm/psr7": "^1.8",
+        "illuminate/contracts": "^11.0|^12.0",
+        "orchestra/testbench": "^9.0|^10.0",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0",
+        "laravel/pint": "^1.18"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "A PSR-18 client that supports separate connect and read timeouts. Strongly recommended for payment traffic.",
+        "illuminate/support": "Enables the Laravel service provider, facade, events and queued resolution job."
+    },
+    "autoload": {
+        "psr-4": {
+            "Tuurosung\\Teller\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tuurosung\\Teller\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tuurosung\\Teller\\Laravel\\TellerServiceProvider"
+            ],
+            "aliases": {
+                "Teller": "Tuurosung\\Teller\\Laravel\\Facades\\Teller"
+            }
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse",
+        "format": "pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+
+}
