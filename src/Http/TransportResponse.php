@@ -17,12 +17,16 @@ final readonly class TransportResponse
         public ?array $json
     ) {}
 
+
     public static function from(int $status, string $body): self
     {
         return new self($status, $body, self::decode($body));
     }
 
 
+    /**
+     * @return array<string, mixed>|null
+     */
     private static function decode(string $body): ?array
     {
         if (trim($body) === '') {
